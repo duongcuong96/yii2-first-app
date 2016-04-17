@@ -157,7 +157,9 @@ class PostsController extends Controller
     public function actionSingle(){
         $request = Yii::$app->request;
         $id = $request->get("id");
-        $model = Posts::findOne($id);
+    if(isset($id) && !empty($id) && is_numeric($id))
+            $model = Posts::findOne($id);
+    else return ;
         if($model != null){
             return $this->render("single", ["model" => $model]);
         } else{

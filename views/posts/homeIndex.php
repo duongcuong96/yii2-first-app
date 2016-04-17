@@ -20,7 +20,7 @@ $indexUrl = $baseUrl->toRoute("single");
 			                		echo substr($excerpt, 0, strrpos($excerpt," ")) . " ...";
 			                	}else echo $m['content'];
 			                ?>
-			                <a class="col-xs-12 margin-top-20 btn btn-default" href="<?= htmlentities($indexUrl . "&id=". $m->id) ?>">xem thêm</a>
+			                <a class="col-xs-12 margin-top-20 btn btn-default" href="<?= Yii::$app->urlManager->createUrl(["posts/single","id" => $m["id"] ]) ?>">xem thêm</a>
 		                </div>
 			<?php endforeach;?>
 		</div>
